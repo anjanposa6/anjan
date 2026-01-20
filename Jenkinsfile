@@ -1,5 +1,5 @@
 pipeline {
-    agent any   // Runs on any available Ubuntu/Linux agent
+    agent any   // Runs on any available Windows agent
     stages {
         stage('Checkout') {
             steps {
@@ -9,10 +9,12 @@ pipeline {
         }
         stage('Run Script') {
             steps {
-                // Ensure script is executable
-                bat 'chmod +x git-ip.sh'
-                // Run the script
-                bat './git-ip.sh'
+                // Run a Windows batch script
+                // If you have converted git-ip.sh into git-ip.bat:
+                bat 'git-ip.bat'
+
+                // OR, if you want to run the .sh file via Git Bash:
+                // bat '"C:\\Program Files\\Git\\bin\\bash.exe" git-ip.sh'
             }
         }
     }
