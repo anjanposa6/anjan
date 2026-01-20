@@ -10,9 +10,9 @@ pipeline {
         stage('Run Script') {
             steps {
                 // Ensure script is executable
-                sh 'chmod +x git-ip.sh'
+                bat 'chmod +x git-ip.sh'
                 // Run the script
-                sh './git-ip.sh'
+                bat './git-ip.sh'
             }
         }
     }
